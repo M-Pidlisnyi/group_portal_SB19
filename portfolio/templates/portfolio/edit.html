@@ -1,0 +1,7 @@
+<h1>Редагувати портфоліо</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Оновити</button>
+</form>
+<a href="{% url 'portfolio_list' %}">Назад до списку</a>

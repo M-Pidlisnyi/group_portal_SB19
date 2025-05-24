@@ -1,0 +1,7 @@
+<h1>Видалити портфоліо</h1>
+<p>Ви впевнені, що хочете видалити "{{ portfolio.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Видалити</button>
+</form>
+<a href="{% url 'portfolio_list' %}">Назад до списку</a>

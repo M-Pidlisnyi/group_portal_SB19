@@ -1,0 +1,17 @@
+<h1>Мої портфоліо</h1>
+<a href="{% url 'portfolio_create' %}">Створити нове портфоліо</a>
+<ul>
+    {% for portfolio in portfolios %}
+    <li>
+        <h2>{{ portfolio.title }}</h2>
+        <p>{{ portfolio.description }}</p>
+        <img src="{{ portfolio.screenshot.url }}" alt="{{ portfolio.title }}" width="200">
+        <a href="{{ portfolio.link }}" target="_blank">Посилання</a>
+        {% if portfolio.file %}
+        <a href="{{ portfolio.file.url }}" download>Завантажити файл</a>
+        {% endif %}
+        <a href="{% url 'portfolio_edit' portfolio.pk %}">Редагувати</a>
+        <a href="{% url 'portfolio_delete' portfolio.pk %}">Видалити</a>
+    </li>
+    {% endfor %}
+</ul>
