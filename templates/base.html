@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Сторінка{% endblock %}</title>
+</head>
+<body>
+    <header style="display: flex; justify-content: flex-start; gap: 15px; padding: 10px;">
+        {% if user.is_authenticated %}
+            <span>Привіт, {{ user.username }}!</span>
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Вийти</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Увійти</a>
+        {% endif %}
+    </header>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

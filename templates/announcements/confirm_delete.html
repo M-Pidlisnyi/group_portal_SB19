@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Видалення оголошення{% endblock %}
+
+{% block content %}
+<h1>Видалити оголошення?</h1>
+<p>Ви впевнені, що хочете видалити оголошення "{{ announcement.title }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Так, видалити</button>
+    <a href="{% url 'announcement_detail' announcement.pk %}">Скасувати</a>
+</form>
+{% endblock %}
