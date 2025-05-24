@@ -8,10 +8,10 @@ class Photo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     uploaded_at = models.DateTimeField()
     class Meta:
-        verbose_name = "photos"
+        verbose_name = "photo"
 class Video(models.Model):
     video = models.FileField(upload_to="", blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE )
     uploaded_at = models.DateTimeField()
     class Meta:
-        verbose_name = "videos"
+        verbose_name = "video"
