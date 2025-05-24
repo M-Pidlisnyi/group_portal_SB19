@@ -17,5 +17,5 @@ class PhotoCreateView(CreateView):
     def form_valid(self, form):
         user = self.request.user
         form.instance.user = user
-
+class PhotoEditView(UpdateView,UserIsOwnerMixin):
     
