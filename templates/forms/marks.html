@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-{% if marks %}
+<h2>Оцінки</h2>
+
+<p>Оцінок: {{ marks|length }}</p>
+
 {% for mark in marks %}
-    <p>{{mark.grade}} {{mark.user}} {{mark.subject}} {{mark.date}}</p>
+    <a href="{% url 'mark-detail' mark.pk %}">{{ mark }}</br>
+{% empty %}
+    <p>Нема оцінок</p>
 {% endfor %}
-{% else % }
-<p>Нема оцінок</p>
-{% endif %}
 {% endblock %}

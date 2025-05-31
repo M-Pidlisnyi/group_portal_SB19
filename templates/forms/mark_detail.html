@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="{% url 'marks' %}">Назад</a>
+<a href="{% url 'mark-edit' mark.pk %}">Змінити</a>
+<p>Оцінка: {{mark.grade}}</p>
+<p>Предмет: {{mark.subject}}</p>
+<p>Опис: {{mark.description}}</p>
+<p>Дата: {{mark.date}}</p>
+<p>Учитель: {{mark.user}}</p>
+{% endblock %}

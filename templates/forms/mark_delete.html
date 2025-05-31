@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Оновлення завдання</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>Чи ви впевнені?</p>
+        <input type="submit" value="Так"></input>
+    </form>
+<a href="{% url 'marks' %}"><button>НІ</button></a>
+{% endblock %}
