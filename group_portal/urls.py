@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from forms.views import MarkList
+from forms.views import MarkList, MarkDetail, MarkCreate, MarkDelete, MarkEdit
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('marks/', MarkList.as_view(), name='marks')
+    path('marks/', MarkList.as_view(), name='marks'),
+    path('mark/detail/<int:pk>/', MarkDetail.as_view(), name='mark-detail'),
+    path('mark/create/', MarkCreate.as_view(), name='mark-create'),
+    path('mark/delete/<int:pk>/', MarkDelete.as_view(), name='mark-delete'),
+    path('mark/edit/<int:pk>/', MarkEdit.as_view(), name='mark-edit'),
 ]
