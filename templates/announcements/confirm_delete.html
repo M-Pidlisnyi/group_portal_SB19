@@ -9,6 +9,7 @@
 <form method="post">
     {% csrf_token %}
     <button type="submit">Так, видалити</button>
-    <a href="{% url 'announcement_detail' announcement.pk %}">Скасувати</a>
+    <a href="{% url 'announcement_delete' pk=announcement.pk %}">Видалити</a>
+
 </form>
 {% endblock %}

@@ -5,16 +5,23 @@
     <title>{% block title %}Сторінка{% endblock %}</title>
 </head>
 <body>
-    <header style="display: flex; justify-content: flex-start; gap: 15px; padding: 10px;">
-        {% if user.is_authenticated %}
-            <span>Привіт, {{ user.username }}!</span>
-            <form action="{% url 'logout' %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Вийти</button>
-            </form>
-        {% else %}
-            <a href="{% url 'login' %}">Увійти</a>
-        {% endif %}
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+        <div style="display: flex; gap: 15px; align-items: center;">
+            {% if user.is_authenticated %}
+                <span>Привіт, {{ user.username }}!</span>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Вийти</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}">Увійти</a>
+            {% endif %}
+        </div>
+
+        <form method="get" action="{% url 'announcements_search' %}" style="display: flex; gap: 5px;">
+            <input type="text" name="q" placeholder="Пошук оголошень" value="{{ request.GET.q }}">
+            <button type="submit">Пошук</button>
+        </form>
     </header>
 
     {% block content %}
