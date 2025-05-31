@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ material.name }}</h2>
+<p>{{ material.details }}</p>
+
+{% if material.link %}
+    <p><a href="{{ material.link }}" target="_blank">Перейти за посиланням</a></p>
+{% endif %}
+
+{% if material.y_link %}
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ material.y_link|cut:'https://youtu.be/'|cut:'https://www.youtube.com/watch?v=' }}" frameborder="0" allowfullscreen></iframe>
+{% endif %}
+
+{% if material.file %}
+    <p><a href="{{ material.file.url }}" download>Завантажити файл</a></p>
+{% endif %}
+
+{% if material.image %}
+    <img src="{{ material.image.url }}" alt="Зображення" style="max-width: 100%;">
+{% endif %}
+
+<hr>
+<p>
+
+    
+    <a href="{% url 'material-list' %}">← Назад</a>
+</p>
+
+{% endblock %}

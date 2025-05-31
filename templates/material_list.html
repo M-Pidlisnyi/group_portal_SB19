@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1> Список матеріалів </h1>
+
+<a href="{% url 'material-create' %}"> додати новий матеріал </a>
+
+<ul>
+    {% for material in materials %}
+    <li>
+        <a href="{% url 'material-detail' material.pk %}">
+            {{ material.name }}
+        </a>
+    </li>
+    {% empty %}
+        <li>матеріал не знайдено</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

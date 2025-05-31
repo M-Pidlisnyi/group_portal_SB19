@@ -24,7 +24,7 @@ class Material(models.Model):
     data = models.DateTimeField(auto_now_add=True, verbose_name="Дата створення")
     updated = models.DateTimeField(auto_now=True, verbose_name="Оновлення")
     
-    us = models.ForeignKey(User, null = True, verbose_name="Ким додано")
+    user = models.ForeignKey(User, null = True, verbose_name="Ким додано", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

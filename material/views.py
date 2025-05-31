@@ -22,6 +22,7 @@ class MaterialDetailView(DetailView):
 
 class MaterialCreateView(LoginRequiredMixin,CreateView):
     model = Material
+    fields = "__all__"
     template_name = "material_create.html"
     success_url = reverse_lazy("material-list")
     
@@ -35,12 +36,14 @@ class MaterialEditView(LoginRequiredMixin,UpdateView):
     form_class = MaterialForm
     template_name = "material_edit.html"
     success_url = reverse_lazy("material-list")
+    context_object_name = "material"
 
     def get_success_url(self):
-        url = reverse("task-detail", kwargs={"pk": self.get_object().pk})
+        url = reverse("material-detail", kwargs={"pk": self.get_object().pk})
         return url
 
 class MaterialDeleteView(LoginRequiredMixin,DeleteView):
     model = Material
     template_name = "material_delete.html"
     success_url = reverse_lazy("material-list")
+    context_object_name = "material"

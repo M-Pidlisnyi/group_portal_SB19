@@ -1,0 +1,15 @@
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Портал матеріалів{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'material-list' %}">Портал матеріалів</a></h1>
+        <hr>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
