@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if marks %}
+{% for mark in marks %}
+    <p>{{mark.grade}} {{mark.user}} {{mark.subject}} {{mark.date}}</p>
+{% endfor %}
+{% else % }
+<p>Нема оцінок</p>
+{% endif %}
+{% endblock %}
