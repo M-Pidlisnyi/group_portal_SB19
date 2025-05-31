@@ -1,5 +1,5 @@
 from django.contrib import admin
-from forms.models import Message, Mark
+from forms.models import Mark, Subject
 # Register your models here.
-admin.site.register(Message)
 admin.site.register(Mark)
+admin.site.register(Subject)

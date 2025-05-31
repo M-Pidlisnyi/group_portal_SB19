@@ -1,7 +1,7 @@
 from django import forms
-from forms.models import Message
-class Message(forms.ModelForm):
+from forms.models import Mark
+class MarkForm(forms.ModelForm):
     class Meta:
-        model = Message
+        model = Mark
         fields = "__all__"
         exclude = ['user']
