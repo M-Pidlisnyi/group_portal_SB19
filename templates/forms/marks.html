@@ -1,0 +1,12 @@
+{% extends 'forms/base.html' %}
+{% block content %}
+<h2>Оцінки</h2>
+
+<p>Оцінок: {{ marks|length }}</p>
+
+{% for mark in marks %}
+    <a href="{% url 'mark-detail' mark.pk %}">{{ mark }}</br>
+{% empty %}
+    <p>Нема оцінок</p>
+{% endfor %}
+{% endblock %}
