@@ -1,0 +1,21 @@
+{% extends "announcement/base.html" %}
+
+{% block title %}Результати пошуку{% endblock %}
+
+{% block content %}
+  <h1>Результати пошуку за "{{ query }}"</h1>
+
+  {% if announcements %}
+    <ul>
+      {% for announcement in announcements %}
+        <li>
+          <a href="{% url 'announcement_detail' announcement.pk %}">{{ announcement.title }}</a> — {{ announcement.content|truncatechars:100 }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>За вашим запитом нічого не знайдено.</p>
+  {% endif %}
+
+  <a href="{% url 'announcements_list' %}">Повернутися до списку оголошень</a>
+{% endblock %}
