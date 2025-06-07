@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from forms.views import MarkList, MarkDetail, MarkCreate, MarkDelete, MarkEdit
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,7 @@ urlpatterns = [
     path('mark/create/', MarkCreate.as_view(), name='mark-create'),
     path('mark/delete/<int:pk>/', MarkDelete.as_view(), name='mark-delete'),
     path('mark/edit/<int:pk>/', MarkEdit.as_view(), name='mark-edit'),
+    path("", include("material.urls")),
+    path('', include('announcement.urls')),
+
 ]
