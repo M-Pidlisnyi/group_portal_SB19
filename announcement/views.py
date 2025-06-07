@@ -35,7 +35,7 @@ def announcement_create(request):
         form = AnnouncementForm(request.POST)
         if form.is_valid():
             new_announcement = form.save(commit=False)
-            new_announcement.author = request.user  # Присваиваем автора
+            new_announcement.author = request.user  
             new_announcement.save()
             return redirect('announcement_detail', pk=new_announcement.pk)
     else:
@@ -68,3 +68,4 @@ def announcements_search(request):
         Q(title__icontains=query) | Q(content__icontains=query)
     ).order_by('-created_at')
     return render(request, 'announcements/search_results.html', {'announcements': announcements, 'query': query})
+
