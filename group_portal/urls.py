@@ -26,5 +26,6 @@ urlpatterns = [
     path('mark/edit/<int:pk>/', MarkEdit.as_view(), name='mark-edit'),
     path("", include("material.urls")),
     path('', include('announcement.urls')),
+    path('auth/', include("django.contrib.auth.urls"))
 
 ]
